@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "URPGDesktopCalc", "URPGDesktopCalc\URPGDesktopCalc.csproj", "{870C66CB-27B0-4605-BEFA-0B3098F2F294}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://luefox.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = URPGDesktopCalc\\URPGDesktopCalc.csproj
+		SccProjectName1 = URPGDesktopCalc
+		SccLocalPath1 = URPGDesktopCalc
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{870C66CB-27B0-4605-BEFA-0B3098F2F294}.Debug|x86.ActiveCfg = Debug|x86
+		{870C66CB-27B0-4605-BEFA-0B3098F2F294}.Debug|x86.Build.0 = Debug|x86
+		{870C66CB-27B0-4605-BEFA-0B3098F2F294}.Release|x86.ActiveCfg = Release|x86
+		{870C66CB-27B0-4605-BEFA-0B3098F2F294}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

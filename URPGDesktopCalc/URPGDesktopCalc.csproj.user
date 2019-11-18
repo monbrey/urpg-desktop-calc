@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+    <PublishUrlHistory>sftp://20.188.248.237:22/|ftp://20.188.248.237:22/|sftp://20.188.248.237/|ftp://20.188.248.237/desktop-calc-test/|sftp://20.188.248.237/desktop-calc-test/</PublishUrlHistory>
+    <InstallUrlHistory>https://urpg.monbrey.com.au/calcs/desktop/|http://urpg.monbrey.com.au/calcs/desktop/</InstallUrlHistory>
+    <SupportUrlHistory>http://monbrey.com.au/urpgcalcs/desktopcalc/</SupportUrlHistory>
+    <UpdateUrlHistory>http://urpg.monbrey.com.au/calcs/desktop/</UpdateUrlHistory>
+    <BootstrapperUrlHistory />
+    <ErrorReportUrlHistory>http://monbrey.com.au/urpgcalcs/desktopcalc/</ErrorReportUrlHistory>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>false</VerifyUploadedFiles>
+  </PropertyGroup>
+</Project>

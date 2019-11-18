@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/URPGDesktopCalc/v16
+/packages
+/PreReleases
+/Releases
+/URPGDesktopCalc/bin
+/URPGDesktopCalc/obj/x86
