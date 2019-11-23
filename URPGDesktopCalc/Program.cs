@@ -1,12 +1,15 @@
 using System;
 using System.Net;
 using System.Windows.Forms;
+using CefSharp;
 using Squirrel;
 
 namespace URPGDesktopCalc
 {
     public static class Program
     {
+        private static Calc _calc;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,14 +20,15 @@ namespace URPGDesktopCalc
             {
                 update();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show(@"Unable to check for updates - unknown issue retrieving update files");
+                MessageBox.Show($"Unable to check for updates\n\n{ex.Message}");
             }
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Calc());
+            _calc = new Calc();
+            Application.Run(_calc);
         }
 
         private static async void update()
@@ -44,9 +48,20 @@ namespace URPGDesktopCalc
                 MessageBox.Show(@"Unable to check for updates - Remote repository not found.");
             }
 
-            using (UpdateManager mgr = new UpdateManager("http://urpg.monbrey.com.au/calcs/desktop/releases/"))
+            try
             {
-                await mgr.UpdateApp();
+                using (UpdateManager mgr = new UpdateManager("http://urpg.monbrey.com.au/calcs/desktop/releases/"))
+                {
+                    string title = _calc.Text;
+                    _calc.Text = $"{title} - Downloading update";
+                    await mgr.UpdateApp();
+                    _calc.Text = $"{title} - Update downloaded and available for next launch";
+                    mgr.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
             }
         }
     }

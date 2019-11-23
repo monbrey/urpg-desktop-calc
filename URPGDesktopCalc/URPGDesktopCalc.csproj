@@ -80,10 +80,10 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>false</SignManifests>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>C1F8BAAD19781416ACABEC7050FBBBD4AF6B8EF6</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>291DEC16A315DA954F7FE8B7A5A0B5AED39C8150</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>URPGDesktopCalc_TemporaryKey.pfx</ManifestKeyFile>
@@ -92,7 +92,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -102,7 +102,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>URPGDesktopCalc_KeyFile.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CefSharp">
@@ -175,6 +176,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Calc.resx">
       <DependentUpon>Calc.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -200,7 +202,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="URPGDesktopCalc_KeyFile.pfx" />
+    <None Include="URPGDesktopCalcManifestCert.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\625.png" />
