@@ -1824,8 +1824,6 @@ namespace URPGDesktopCalc
 
             BasePowerA.Text = "";
             BasePowerB.Text = "";
-            SidesTextbox.Text = "";
-            DiceResultBox.Text = "";
             AccResultBox.Text = "";
             ManualA.Text = "";
             ManualB.Text = "";
@@ -1860,34 +1858,7 @@ namespace URPGDesktopCalc
 
         #endregion
 
-        #region DiceRoll and Accuracy Functions
-        protected void RollDice(object sender, EventArgs e)
-        {
-
-            Random roll = new Random();
-            int sides, result;
-
-            if (!Regex.IsMatch(SidesTextbox.Text, @"^[0-9]+$") && SidesTextbox.Text != "0")
-            {
-                MessageBox.Show("Number of sides must be a whole positive number.");
-                return;
-            }
-            else sides = Convert.ToInt32(SidesTextbox.Text);
-
-            result = roll.Next(1, sides+1);
-
-            DiceResultBox.Text = result.ToString();
-        }
-
-        protected void Sides(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Return || e.KeyChar == (char)Keys.Enter)
-                e.Handled = true;
-            else
-                return;
-
-            RollDice(sender, new EventArgs());
-        }
+        #region Accuracy Function
 
         protected void CalcAcc(object sender, EventArgs e)
         {
