@@ -3,8 +3,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using CefSharp.WinForms;
 using System.Reflection;
+using CefSharp.WinForms;
 
 /* URPG Desktop Calc
  * Version: 1.6
@@ -28,8 +28,6 @@ namespace URPGDesktopCalc
         BattlePokemon BattlePokemonA;
         BattlePokemon BattlePokemonB;
 
-        ChromiumWebBrowser ultradexBrowser, refpediaBrowser;
-
         bool ChangeFlag = true;
         //I use this to override some default functionality
 
@@ -37,11 +35,11 @@ namespace URPGDesktopCalc
         {
             InitializeComponent();
 
-            ultradexBrowser = new ChromiumWebBrowser("https://pokemonurpg.com")
+            ChromiumWebBrowser ultradexBrowser = new ChromiumWebBrowser("https://pokemonurpg.com")
             {
                 Dock = DockStyle.Fill
             };
-            refpediaBrowser = new ChromiumWebBrowser("https://pokemonurpg.com/info/battles/reffing-encyclopedia/")
+            ChromiumWebBrowser refpediaBrowser = new ChromiumWebBrowser("https://pokemonurpg.com/info/battles/reffing-encyclopedia/")
             {
                 Dock = DockStyle.Fill
             };
