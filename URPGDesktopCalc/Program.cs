@@ -60,6 +60,11 @@ namespace URPGDesktopCalc
             {
                 using (UpdateManager mgr = new UpdateManager("https://urpg.monbrey.com.au/calcs/desktop/releases/"))
                 {
+                    SquirrelAwareApp.HandleEvents(
+                        v => mgr.CreateShortcutForThisExe(),
+                        v => mgr.CreateShortcutForThisExe(),
+                        onAppUninstall: v => mgr.RemoveShortcutForThisExe());
+
                     UpdateInfo updateInfo = await mgr.CheckForUpdate();
                     Console.WriteLine(updateInfo.ReleasesToApply.Count);
                     if (!updateInfo.ReleasesToApply.Any()) return;
