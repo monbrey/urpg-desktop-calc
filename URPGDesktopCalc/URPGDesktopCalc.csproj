@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{870C66CB-27B0-4605-BEFA-0B3098F2F294}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>URPGDesktopCalc</RootNamespace>
     <AssemblyName>URPGDesktopCalc</AssemblyName>

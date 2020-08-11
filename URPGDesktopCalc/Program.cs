@@ -1,7 +1,9 @@
 using System;
-using System.IO;
+using System.Linq;
 using System.Net;
+using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using CefSharp;
 using Squirrel;
@@ -18,18 +20,20 @@ namespace URPGDesktopCalc
         [STAThread]
         public static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            _calc = new Calc();
+
             try
             {
-                Task.Run(update);
+                update();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Unable to check for updates\n\n{ex.Message}");
             }
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            _calc = new Calc();
+
             Application.Run(_calc);
         }
 
@@ -37,28 +41,43 @@ namespace URPGDesktopCalc
         {
             try
             {
-                HttpWebRequest req = WebRequest.CreateHttp("http://urpg.monbrey.com.au/calcs/desktop/releases/");
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                HttpWebRequest req = WebRequest.CreateHttp("https://urpg.monbrey.com.au/calcs/desktop/releases/");
                 req.Method = "HEAD";
                 HttpWebResponse res = req.GetResponse() as HttpWebResponse;
 
+                res?.Close();
+
                 if (res?.StatusCode != HttpStatusCode.OK) return;
             }
-            catch
+            catch (Exception e)
             {
+                Console.WriteLine(e);
                 MessageBox.Show(@"Unable to check for updates - Remote repository not found.");
             }
 
             try
             {
-                using (UpdateManager mgr = new UpdateManager("http://urpg.monbrey.com.au/calcs/desktop/releases/"))
+                using (UpdateManager mgr = new UpdateManager("https://urpg.monbrey.com.au/calcs/desktop/releases/"))
                 {
-                    SquirrelAwareApp.HandleEvents(
-                        v => mgr.CreateShortcutForThisExe(),
-                        v => mgr.CreateShortcutForThisExe(),
-                        onAppUninstall: v => mgr.RemoveShortcutForThisExe());
+                    UpdateInfo updateInfo = await mgr.CheckForUpdate();
+                    Console.WriteLine(updateInfo.ReleasesToApply.Count);
+                    if (!updateInfo.ReleasesToApply.Any()) return;
 
-                    await mgr.UpdateApp();
-                    mgr.Dispose();
+                    
+                    int versionCount = updateInfo.ReleasesToApply.Count;
+
+                    string versionWord = versionCount > 1 ? "versions" : "version";
+                    string message = new StringBuilder().AppendLine($"Calc is {versionCount} {versionWord} behind.").
+                        AppendLine("If you choose to update, changes wont take affect until the calc is restarted.").
+                        AppendLine("Would you like to download and install them?").
+                        ToString();
+
+                    DialogResult result = MessageBox.Show(message, @"Calc update found", MessageBoxButtons.YesNo);
+                    if (result != DialogResult.Yes) return;
+
+                    ReleaseEntry updateResult = await mgr.UpdateApp();
+                    MessageBox.Show($"Download complete. Version {updateResult.Version} will take effect when App is restarted.", "Calc update complete", MessageBoxButtons.OK);
                 }
             }
             catch (Exception e)
