@@ -19,7 +19,7 @@ namespace URPGDesktopCalc.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,47 +61,38 @@ namespace URPGDesktopCalc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _625 {
-            get {
-                object obj = ResourceManager.GetObject("_625", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to NO/(none)
-        ///AD/Adaptability 
+        ///AD/Adaptability
         ///AE/Aerilate
-        ///AF/Aftermath * 
+        ///AF/Aftermath *
         ///AI/Air Lock
         ///AL/Analytic *
-        ///AP/Anger Point * 
-        ///AN/Anticipation * 
+        ///AP/Anger Point *
+        ///AN/Anticipation *
         ///AT/Arena Trap *
         ///AR/Aroma Veil *
         ///AU/Aura Break
-        ///BD/Bad Dreams * 
+        ///BD/Bad Dreams *
+        ///BF/Ball Fetch *
         ///BT/Battery *
-        ///BA/Battle Armor * 
+        ///BA/Battle Armor *
         ///BB/Battle Bond *
         ///BEB/Beast Boost *
         ///BZ/Berzerk *
         ///BP/Big Pecks *
-        ///BL/Blaze 
+        ///BL/Blaze
         ///BU/Bulletproof *
         ///CP/Cheek Pouch *
-        ///CL/Chlorophyll 
-        ///CB/Clear Body * 
-        ///CN/Cloud Nine 
-        ///CC/Color Change * 
+        ///CL/Chlorophyll
+        ///CB/Clear Body *
+        ///CN/Cloud Nine
+        ///CC/Color Change *
         ///CT/Comatose *
         ///CM/Competitive *
-        ///CE/Compoundeyes * 
+        ///CE/Compoundeyes *
         ///CO/Contrary *
         ///CR/Corrosion *
-        ///CY/Cursed Body * [rest of string was truncated]&quot;;.
+        ///CD/Cotton D [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Abilities {
             get {
@@ -142,8 +133,8 @@ namespace URPGDesktopCalc.Properties {
         ///Absol/DK/NO/334/359/219/249/219/249
         ///Absol-Mega/DK/NO/334/399/219/329/219/329
         ///Accelgor/B/NO/364/239/179/299/219/389
-        ///Aegislash-Blade/S/GH/324/399/199/399/199/219
-        ///Aegislash-Shield/S/GH/324/199/399/199/399/219
+        ///Aegislash-Blade/S/GH/324/379/199/379/199/219
+        ///Aegislash-Shield/S/GH/324/199/379/199/379/219
         ///Aerodactyl/R/FL/364/309/229/219/249/359
         ///Aerodactyl-Mega/R/FL/364/369/269/239/289/399
         ///Aggron/S/R/344/319/459/219/219/199

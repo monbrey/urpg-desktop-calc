@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
-namespace URPGDesktopCalc
+namespace URPGDesktopCalc.Classes
 {
     public class BattlePokemon : Pokemon
     {
@@ -30,6 +28,8 @@ namespace URPGDesktopCalc
         public double SPAmod { get; set; }
         public double SPDmod { get; set; }
         public double SPEmod { get; set; }
+
+        public bool isDynamaxed { get; set; }
 
         public BattlePokemon()
         {
@@ -92,7 +92,7 @@ namespace URPGDesktopCalc
         public void ChangeHealth(double amount)
         {
             //Takes amount as a percentage for Sixteenths function
-            amount = amount / 100;
+            amount /= 100;
 
             if (amount > 0)
             {
@@ -136,7 +136,7 @@ namespace URPGDesktopCalc
         public void SetPercentage(double newPer)
         {
             Percentage = Math.Min(newPer, 100.0);
-            CurrentHP = Math.Round((newPer / 100) * MaxHP);
+            CurrentHP = Math.Round(newPer / 100 * MaxHP);
         }
 
         public void CreateSub()
@@ -150,7 +150,25 @@ namespace URPGDesktopCalc
         {
             SubHP = health;
 
-            Sub = (SubHP == 0) ? false : true;
+            Sub = SubHP != 0;
+        }
+
+        public void ToggleDynamax(Button butt)
+        {
+            if (isDynamaxed)
+            {
+                MaxHP /= 2;
+                CurrentHP /= 2;
+                butt.BackColor = Color.Transparent;
+            }
+            else
+            {
+                MaxHP *= 2;
+                CurrentHP *= 2;
+                butt.BackColor = Color.LightCoral;
+            }
+
+            isDynamaxed = !isDynamaxed;
         }
 
         public void ResetMods()

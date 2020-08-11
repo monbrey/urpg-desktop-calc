@@ -207,6 +207,8 @@ namespace URPGDesktopCalc
             this.clearCalcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearStorageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.DynamaxA = new System.Windows.Forms.Button();
+            this.DynamaxB = new System.Windows.Forms.Button();
             AccResultLabel = new System.Windows.Forms.Label();
             EvasionLabel = new System.Windows.Forms.Label();
             AccuracyLabel = new System.Windows.Forms.Label();
@@ -744,6 +746,8 @@ namespace URPGDesktopCalc
             // 
             // RefCalcTab
             // 
+            this.RefCalcTab.Controls.Add(this.DynamaxB);
+            this.RefCalcTab.Controls.Add(this.DynamaxA);
             this.RefCalcTab.Controls.Add(this.ConfuseB);
             this.RefCalcTab.Controls.Add(this.ConfuseA);
             this.RefCalcTab.Controls.Add(this.AccMod);
@@ -873,7 +877,7 @@ namespace URPGDesktopCalc
             this.RefCalcTab.Controls.Add(this.PokemonA);
             this.RefCalcTab.Location = new System.Drawing.Point(4, 22);
             this.RefCalcTab.Name = "RefCalcTab";
-            this.RefCalcTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.RefCalcTab.Padding = new System.Windows.Forms.Padding(3);
             this.RefCalcTab.Size = new System.Drawing.Size(976, 559);
             this.RefCalcTab.TabIndex = 0;
             this.RefCalcTab.Text = "Ref Calc";
@@ -1269,7 +1273,7 @@ namespace URPGDesktopCalc
             // Minus625A
             // 
             this.Minus625A.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Minus625A.Image = global::URPGDesktopCalc.Properties.Resources._625;
+            this.Minus625A.Image = ((System.Drawing.Image)(resources.GetObject("Minus625A.Image")));
             this.Minus625A.Location = new System.Drawing.Point(576, 334);
             this.Minus625A.Name = "Minus625A";
             this.Minus625A.Size = new System.Drawing.Size(34, 16);
@@ -2510,7 +2514,7 @@ namespace URPGDesktopCalc
             this.TeamStorageTab.Controls.Add(this.TeamALabel);
             this.TeamStorageTab.Location = new System.Drawing.Point(4, 22);
             this.TeamStorageTab.Name = "TeamStorageTab";
-            this.TeamStorageTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.TeamStorageTab.Padding = new System.Windows.Forms.Padding(3);
             this.TeamStorageTab.Size = new System.Drawing.Size(976, 559);
             this.TeamStorageTab.TabIndex = 1;
             this.TeamStorageTab.Text = "Team Storage";
@@ -2954,7 +2958,7 @@ namespace URPGDesktopCalc
             // RefpediaTab
             // 
             this.RefpediaTab.Location = new System.Drawing.Point(4, 22);
-            this.RefpediaTab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RefpediaTab.Margin = new System.Windows.Forms.Padding(2);
             this.RefpediaTab.Name = "RefpediaTab";
             this.RefpediaTab.Size = new System.Drawing.Size(976, 559);
             this.RefpediaTab.TabIndex = 3;
@@ -3005,6 +3009,31 @@ namespace URPGDesktopCalc
             this.AboutMenu.Size = new System.Drawing.Size(52, 22);
             this.AboutMenu.Text = "About";
             this.AboutMenu.Click += new System.EventHandler(this.About_Click);
+            // 
+            // DynamaxA
+            // 
+            this.DynamaxA.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DynamaxA.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.DynamaxA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DynamaxA.Image = ((System.Drawing.Image)(resources.GetObject("DynamaxA.Image")));
+            this.DynamaxA.Location = new System.Drawing.Point(171, 254);
+            this.DynamaxA.Name = "DynamaxA";
+            this.DynamaxA.Size = new System.Drawing.Size(50, 30);
+            this.DynamaxA.TabIndex = 288;
+            this.DynamaxA.UseVisualStyleBackColor = true;
+            this.DynamaxA.Click += new System.EventHandler(this.DynamaxPokemon);
+            // 
+            // DynamaxB
+            // 
+            this.DynamaxB.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DynamaxB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DynamaxB.Image = ((System.Drawing.Image)(resources.GetObject("DynamaxB.Image")));
+            this.DynamaxB.Location = new System.Drawing.Point(431, 254);
+            this.DynamaxB.Name = "DynamaxB";
+            this.DynamaxB.Size = new System.Drawing.Size(50, 30);
+            this.DynamaxB.TabIndex = 289;
+            this.DynamaxB.UseVisualStyleBackColor = true;
+            this.DynamaxB.Click += new System.EventHandler(this.DynamaxPokemon);
             // 
             // Calc
             // 
@@ -3176,6 +3205,8 @@ namespace URPGDesktopCalc
         private System.Windows.Forms.ToolStripMenuItem clearCalcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearStorageToolStripMenuItem;
         private System.Windows.Forms.TabPage RefpediaTab;
+        private System.Windows.Forms.Button DynamaxB;
+        private System.Windows.Forms.Button DynamaxA;
     }
 }
 

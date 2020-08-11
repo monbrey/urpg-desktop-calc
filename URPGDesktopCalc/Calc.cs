@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Reflection;
 using CefSharp.WinForms;
+using URPGDesktopCalc.Classes;
 
 /* URPG Desktop Calc
  * Version: 1.6
@@ -271,21 +272,17 @@ namespace URPGDesktopCalc
         {
             if (BattlePokemonA != null)
             {
+                MaxHPA.Text = BattlePokemonA.MaxHP.ToString();
                 HPResultA.Text = BattlePokemonA.CurrentHP.ToString();
-                PercentResultA.Text = BattlePokemonA.Percentage.ToString("F2") + "%";
-                if (BattlePokemonA.Sub)
-                    SubHealthA.Text = BattlePokemonA.SubHP.ToString();
-                else
-                    SubHealthA.Text = "None";
+                PercentResultA.Text = $"{BattlePokemonA.Percentage:F2}%";
+                SubHealthA.Text = BattlePokemonA.Sub ? BattlePokemonA.SubHP.ToString() : "None";
             }
             if (BattlePokemonB != null)
             {
+                MaxHPB.Text = BattlePokemonB.MaxHP.ToString();
                 HPResultB.Text = BattlePokemonB.CurrentHP.ToString();
-                PercentResultB.Text = BattlePokemonB.Percentage.ToString("F2") + "%";
-                if (BattlePokemonB.Sub)
-                    SubHealthB.Text = BattlePokemonB.SubHP.ToString();
-                else
-                    SubHealthB.Text = "None";
+                PercentResultB.Text = $"{BattlePokemonB.Percentage:F2}%";
+                SubHealthB.Text = BattlePokemonB.Sub ? BattlePokemonB.SubHP.ToString() : "None";
             }
         }
 
@@ -293,8 +290,6 @@ namespace URPGDesktopCalc
         {
             if (BattlePokemonA != null)
             {
-                Console.WriteLine(BattlePokemonA.ATT + " " + BattlePokemonA.ATTmod);
-
                 AttackA.Text = (Math.Floor(BattlePokemonA.ATT * BattlePokemonA.ATTmod)).ToString();
                 DefenceA.Text = (Math.Floor(BattlePokemonA.DEF * BattlePokemonA.DEFmod)).ToString();
                 SpAttackA.Text = (Math.Floor(BattlePokemonA.SPA * BattlePokemonA.SPAmod)).ToString();
@@ -317,17 +312,17 @@ namespace URPGDesktopCalc
             {
                 if (StoredPokemon[i] != null)
                 {
-                    StorageBoxes[i].Text = "Name: " + StoredPokemon[i].Name + "\r\n";
+                    StorageBoxes[i].Text = $"Name: {StoredPokemon[i].Name}\r\n";
                     StorageBoxes[i].Text += "Ability: ";
                     foreach (Object A in Abilities)
                     {
                         if (A.Code == StoredPokemon[i].Ability)
                             StorageBoxes[i].Text += A.Name;
                     }
-                    StorageBoxes[i].Text += "\r\nItem: " + StoredPokemon[i].Item + "\r\n\r\n";
-                    StorageBoxes[i].Text += "[" + StoredPokemon[i].Percentage + "%] ";
+                    StorageBoxes[i].Text += $"\r\nItem: {StoredPokemon[i].Item}\r\n\r\n";
+                    StorageBoxes[i].Text += $"[{StoredPokemon[i].Percentage}%] ";
                     if (StoredPokemon[i].Status != "NO" && StoredPokemon[i].Status != null)
-                        StorageBoxes[i].Text += "[" + StoredPokemon[i].Status + "] ";
+                        StorageBoxes[i].Text += $"[{StoredPokemon[i].Status}] ";
                 }
             }
         }
@@ -335,6 +330,24 @@ namespace URPGDesktopCalc
         #endregion
 
         #region HP and Stat Modifiers
+
+        protected void DynamaxPokemon(object sender, EventArgs e)
+        {
+            Button butt = (Button)sender;
+            char Which = butt.Name[butt.Name.Length - 1];
+
+            switch (Which)
+            {
+                case 'A':
+                    BattlePokemonA?.ToggleDynamax(butt);
+                    break;
+                case 'B':
+                    BattlePokemonB?.ToggleDynamax(butt);
+                    break;
+            }
+
+            UpdateHealthDisplay();
+        }
 
         protected void ManualHPMod(object sender, EventArgs e)
         {
@@ -1582,7 +1595,7 @@ namespace URPGDesktopCalc
             //Flower Gift
             if (A.Ability == "FG" && (Weather == "S" || Weather == "HS") && D.Ability != "CN" && D.Ability != "AI") A.ATTmod *= 1.5;
             //Hustle
-            if (A.Ability == "HU") A.ATTmod *= 1.5;
+            if (A.Ability == "HU" || A.Ability == "GT") A.ATTmod *= 1.5;
             //Defeatist
             if (A.Ability == "DE" && A.Percentage < 50.0) A.ATTmod *= 0.5;
             #endregion
@@ -1959,6 +1972,7 @@ namespace URPGDesktopCalc
                     return;
                 }
 
+                if(BattlePokemonA.isDynamaxed) BattlePokemonA.ToggleDynamax(DynamaxA);
                 StoredPokemon[index] = BattlePokemonA;
             }
             if (side == 'B')
@@ -1969,6 +1983,7 @@ namespace URPGDesktopCalc
                     return;
                 }
 
+                if (BattlePokemonB.isDynamaxed) BattlePokemonB.ToggleDynamax(DynamaxB);
                 StoredPokemon[index+6] = BattlePokemonB;
             }
 

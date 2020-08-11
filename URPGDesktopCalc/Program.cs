@@ -1,5 +1,7 @@
 using System;
+using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using CefSharp;
 using Squirrel;
@@ -18,7 +20,7 @@ namespace URPGDesktopCalc
         {
             try
             {
-                update();
+                Task.Run(update);
             }
             catch (Exception ex)
             {
@@ -39,8 +41,6 @@ namespace URPGDesktopCalc
                 req.Method = "HEAD";
                 HttpWebResponse res = req.GetResponse() as HttpWebResponse;
 
-                res?.Close();
-
                 if (res?.StatusCode != HttpStatusCode.OK) return;
             }
             catch
@@ -52,10 +52,12 @@ namespace URPGDesktopCalc
             {
                 using (UpdateManager mgr = new UpdateManager("http://urpg.monbrey.com.au/calcs/desktop/releases/"))
                 {
-                    string title = _calc.Text;
-                    _calc.Text = $"{title} - Downloading update";
+                    SquirrelAwareApp.HandleEvents(
+                        v => mgr.CreateShortcutForThisExe(),
+                        v => mgr.CreateShortcutForThisExe(),
+                        onAppUninstall: v => mgr.RemoveShortcutForThisExe());
+
                     await mgr.UpdateApp();
-                    _calc.Text = $"{title} - Update downloaded and available for next launch";
                     mgr.Dispose();
                 }
             }

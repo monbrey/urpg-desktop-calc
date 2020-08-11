@@ -1,9 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace URPGDesktopCalc
+namespace URPGDesktopCalc.Classes
 {
     public class Pokemon
     {
@@ -21,8 +19,10 @@ namespace URPGDesktopCalc
         {
         }
 
-        public Pokemon(String[] values)
+        public Pokemon(IReadOnlyList<string> values)
         {
+            if (values.Count == 0) return;
+
             Name = values[0];
 
             Type1 = values[1];
