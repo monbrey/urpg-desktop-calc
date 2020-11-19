@@ -208,7 +208,7 @@
       <Version>75.1.143</Version>
     </PackageReference>
     <PackageReference Include="CefSharp.WinForms">
-      <Version>75.1.143</Version>
+      <Version>85.3.130</Version>
     </PackageReference>
     <PackageReference Include="Mono.Cecil">
       <Version>0.11.1</Version>
