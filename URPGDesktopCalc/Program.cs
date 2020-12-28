@@ -2,10 +2,7 @@ using System;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
-using CefSharp;
 using Squirrel;
 
 namespace URPGDesktopCalc
@@ -66,9 +63,7 @@ namespace URPGDesktopCalc
                         onAppUninstall: v => mgr.RemoveShortcutForThisExe());
 
                     UpdateInfo updateInfo = await mgr.CheckForUpdate();
-                    Console.WriteLine(updateInfo.ReleasesToApply.Count);
                     if (!updateInfo.ReleasesToApply.Any()) return;
-
                     
                     int versionCount = updateInfo.ReleasesToApply.Count;
 

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Reflection;
-using CefSharp.WinForms;
 using URPGDesktopCalc.Classes;
 
 /* URPG Desktop Calc
@@ -36,17 +35,6 @@ namespace URPGDesktopCalc
         {
             InitializeComponent();
 
-            ChromiumWebBrowser ultradexBrowser = new ChromiumWebBrowser("https://pokemonurpg.com")
-            {
-                Dock = DockStyle.Fill
-            };
-            ChromiumWebBrowser refpediaBrowser = new ChromiumWebBrowser("https://pokemonurpg.com/info/battles/reffing-encyclopedia/")
-            {
-                Dock = DockStyle.Fill
-            };
-            UltradexTab.Controls.Add(ultradexBrowser);
-            RefpediaTab.Controls.Add(refpediaBrowser);
-
             CreateBindingLists();
             AssignBindingLists();
 
@@ -62,38 +50,38 @@ namespace URPGDesktopCalc
         {
             //Pokemon
             PokemonList = new BindingList<Pokemon>();
-            String[] FileLines = URPGDesktopCalc.Properties.Resources.Pokemon.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (String S in FileLines)
+            string[] FileLines = Properties.Resources.Pokemon.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (string S in FileLines)
             {
-                String[] values = S.Split('/');
+                string[] values = S.Split(',');
                 PokemonList.Add(new Pokemon(values));
             }
 
             //Abilities
             Abilities = new BindingList<Object>();
             FileLines = URPGDesktopCalc.Properties.Resources.Abilities.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (String S in FileLines)
+            foreach (string S in FileLines)
             {
-                String[] values = S.Split('/');
+                string[] values = S.Split(',');
                 Abilities.Add(new Object(values[0], values[1]));
             }
 
             //Types
             Types = new BindingList<TypeObject>();
             FileLines = URPGDesktopCalc.Properties.Resources.Types.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (String S in FileLines)
+            foreach (string S in FileLines)
             {
-                String[] values = S.Split('/');
+                string[] values = S.Split(',');
                 Types.Add(new TypeObject(values[0], values[1]));
             }
 
             //Compatibilities
             int TypeIndex = 1;
             FileLines = URPGDesktopCalc.Properties.Resources.Compatibilities.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            foreach (String S in FileLines)
+            foreach (string S in FileLines)
             {
-                String[] sections = S.Split('/');
-                Types[TypeIndex].Compatibility = new Compat(sections[1].Split(','), sections[2].Split(','), sections[3].Split(','));
+                string[] sections = S.Split(',');
+                Types[TypeIndex].Compatibility = new Compat(sections[1].Split('|'), sections[2].Split('|'), sections[3].Split('|'));
                 TypeIndex++;
             }
 
@@ -1527,6 +1515,8 @@ namespace URPGDesktopCalc
             if (A.Ability == "SF" && Weather == "SS" && (A.AttackType.Code == "GD" || A.AttackType.Code == "R" || A.AttackType.Code == "S")) mod = 1.3;
             if (A.Ability == "WB" && A.AttackType.Code == "W") mod = 2.0;
             if (A.Ability == "STW" && A.AttackType.Code == "S") mod = 1.5;
+            if (A.Ability == "DM" && A.AttackType.Code == "DR") mod = 1.5;
+            if (A.Ability == "TS" && A.AttackType.Code == "E") mod = 1.5;
 
             if (A.Ability == "DK" && A.AttackType.Code == "DK") mod = (D.Ability != "AU") ? (4.0 / 3.0) : (2.0 / 3.0);
             if (A.Ability == "FA" && A.AttackType.Code == "FA") mod = (D.Ability != "AU") ? (4.0 / 3.0) : (2.0 / 3.0);

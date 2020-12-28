@@ -61,38 +61,38 @@ namespace URPGDesktopCalc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NO/(none)
-        ///AD/Adaptability
-        ///AE/Aerilate
-        ///AF/Aftermath *
-        ///AI/Air Lock
-        ///AL/Analytic *
-        ///AP/Anger Point *
-        ///AN/Anticipation *
-        ///AT/Arena Trap *
-        ///AR/Aroma Veil *
-        ///AU/Aura Break
-        ///BD/Bad Dreams *
-        ///BF/Ball Fetch *
-        ///BT/Battery *
-        ///BA/Battle Armor *
-        ///BB/Battle Bond *
-        ///BEB/Beast Boost *
-        ///BZ/Berzerk *
-        ///BP/Big Pecks *
-        ///BL/Blaze
-        ///BU/Bulletproof *
-        ///CP/Cheek Pouch *
-        ///CL/Chlorophyll
-        ///CB/Clear Body *
-        ///CN/Cloud Nine
-        ///CC/Color Change *
-        ///CT/Comatose *
-        ///CM/Competitive *
-        ///CE/Compoundeyes *
-        ///CO/Contrary *
-        ///CR/Corrosion *
-        ///CD/Cotton D [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to NO,(none)
+        ///AD,Adaptability
+        ///AE,Aerilate
+        ///AF,Aftermath *
+        ///AI,Air Lock
+        ///AL,Analytic *
+        ///AP,Anger Point *
+        ///AN,Anticipation *
+        ///AT,Arena Trap *
+        ///AR,Aroma Veil *
+        ///AU,Aura Break
+        ///BD,Bad Dreams *
+        ///BF,Ball Fetch *
+        ///BT,Battery *
+        ///BA,Battle Armor *
+        ///BB,Battle Bond *
+        ///BEB,Beast Boost *
+        ///BZ,Berzerk *
+        ///BP,Big Pecks *
+        ///BL,Blaze
+        ///BU,Bulletproof *
+        ///CP,Cheek Pouch *
+        ///CL,Chlorophyll
+        ///CB,Clear Body *
+        ///CN,Cloud Nine
+        ///CC,Color Change *
+        ///CT,Comatose *
+        ///CM,Competitive *
+        ///CE,Compoundeyes *
+        ///CO,Contrary *
+        ///CR,Corrosion *
+        ///CD,Cotton D [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Abilities {
             get {
@@ -101,24 +101,24 @@ namespace URPGDesktopCalc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to B/DK,GR,PS/FA,FI,FR,FL,GH,PO,S/
-        ///DK/GH,PS/DK,FA,FI/
-        ///DR/DR/S/FA
-        ///E/FL,W/DR,E,GR/GD
-        ///FA/DK,DR,FI/FR,PO,S/
-        ///FI/DK,I,NM,R,S/B,FA,FL,PO,PS/GH
-        ///FR/B,GR,I,S/DR,FR,R,W/
-        ///FL/B,FI,GR/E,R,S/
-        ///GH/GH,PS/DK/NM
-        ///GR/GD,R,W/B,DR,FR,FL,GR,PO,S/
-        ///GD/E,FR,PO,R,S/B,GR/FL
-        ///I/DR,FL,GR,GD/FR,I,S,W/
-        ///NM//R,S/GH
-        ///PO/FA,GR/GH,GD,PO,R/S
-        ///PS/FI,PO/PS,S/DK
-        ///R/B,FR,FL,I/FI,GD,S/
-        ///S/FA,I,R/E,FR,S,W/
-        ///W/FR,GD,R/DR,GR,W/.
+        ///   Looks up a localized string similar to B,DK|GR|PS,FA|FI|FR|FL|GH|PO|S,
+        ///DK,GH|PS,DK|FA|FI,
+        ///DR,DR,S,FA
+        ///E,FL|W,DR|E|GR,GD
+        ///FA,DK|DR|FI,FR|PO|S,
+        ///FI,DK|I|NM|R|S,B|FA|FL|PO|PS,GH
+        ///FR,B|GR|I|S,DR|FR|R|W,
+        ///FL,B|FI|GR,E|R|S,
+        ///GH,GH|PS,DK,NM
+        ///GR,GD|R|W,B|DR|FR|FL|GR|PO|S,
+        ///GD,E|FR|PO|R|S,B|GR,FL
+        ///I,DR|FL|GR|GD,FR|I|S|W,
+        ///NM,,R|S,GH
+        ///PO,FA|GR,GH|GD|PO|R,S
+        ///PS,FI|PO,PS|S,DK
+        ///R,B|FR|FL|I,FI|GD|S,
+        ///S,FA|I|R,E|FR|S|W,
+        ///W,FR|GD|R,DR|GR|W,.
         /// </summary>
         internal static string Compatibilities {
             get {
@@ -127,19 +127,19 @@ namespace URPGDesktopCalc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Abomasnow/I/GR/384/283/249/283/269/219
-        ///Abomasnow-Mega/GR/I/384/363/309/363/309/159
-        ///Abra/PS/NO/254/139/129/309/209/279
-        ///Absol/DK/NO/334/359/219/249/219/249
-        ///Absol-Mega/DK/NO/334/399/219/329/219/329
-        ///Accelgor/B/NO/364/239/179/299/219/389
-        ///Aegislash-Blade/S/GH/324/379/199/379/199/219
-        ///Aegislash-Shield/S/GH/324/199/379/199/379/219
-        ///Aerodactyl/R/FL/364/309/229/219/249/359
-        ///Aerodactyl-Mega/R/FL/364/369/269/239/289/399
-        ///Aggron/S/R/344/319/459/219/219/199
-        ///Aggron-Mega/S/NO/344/379/559/219/259/199
-        ///Aipom/NM/NO/314 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Abomasnow,I,GR,384,283,249,283,269,219
+        ///Abomasnow-Mega,GR,I,384,363,309,363,309,159
+        ///Abra,PS,NO,254,139,129,309,209,279
+        ///Absol,DK,NO,334,359,219,249,219,249
+        ///Absol-Mega,DK,NO,334,399,219,329,219,329
+        ///Accelgor,B,NO,364,239,179,299,219,389
+        ///Aegislash-Blade,S,GH,324,379,199,379,199,219
+        ///Aegislash-Shield,S,GH,324,199,379,199,379,219
+        ///Aerodactyl,R,FL,364,309,229,219,249,359
+        ///Aerodactyl-Mega,R,FL,364,369,269,239,289,399
+        ///Aggron,S,R,344,319,459,219,219,199
+        ///Aggron-Mega,S,NO,344,379,559,219,259,199
+        ///Aipom,NM,NO,314 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Pokemon {
             get {
@@ -148,25 +148,25 @@ namespace URPGDesktopCalc.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NO/(none)
-        ///B/Bug
-        ///DK/Dark
-        ///DR/Dragon
-        ///E/Electric
-        ///FA/Fairy
-        ///FI/Fighting
-        ///FR/Fire
-        ///FL/Flying
-        ///GH/Ghost
-        ///GR/Grass
-        ///GD/Ground
-        ///I/Ice
-        ///NM/Normal
-        ///PO/Poison
-        ///PS/Psychic
-        ///R/Rock
-        ///S/Steel
-        ///W/Water.
+        ///   Looks up a localized string similar to NO,(none)
+        ///B,Bug
+        ///DK,Dark
+        ///DR,Dragon
+        ///E,Electric
+        ///FA,Fairy
+        ///FI,Fighting
+        ///FR,Fire
+        ///FL,Flying
+        ///GH,Ghost
+        ///GR,Grass
+        ///GD,Ground
+        ///I,Ice
+        ///NM,Normal
+        ///PO,Poison
+        ///PS,Psychic
+        ///R,Rock
+        ///S,Steel
+        ///W,Water.
         /// </summary>
         internal static string Types {
             get {
