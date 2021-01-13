@@ -1422,7 +1422,7 @@ namespace URPGDesktopCalc
                 if (A.AttackType.Compatibility.SE.Contains(D.Type2) && D.Type2 == "FL")
                     result *= 0.5;
             }
-            
+
             return result;
         }
         #endregion
@@ -1722,6 +1722,10 @@ namespace URPGDesktopCalc
 
             double TE = CheckTypes(A, D);
 
+            // Tinted Lens
+            if (A.Ability == "TL" && TE < 1.0)
+                mod *= 2.0;
+
             //Solid Rock/Filter
             if ((D.Ability == "SR" || D.Ability == "FI") && A.Ability != "MB" && A.Ability != "TV" && A.Ability != "TU" && TE > 1.0)
                 mod *= 0.75;
@@ -1772,9 +1776,6 @@ namespace URPGDesktopCalc
                 else
                     mod *= 1.5;
             }
-
-            if (A.Ability == "TL")
-                mod *= 2.0;
 
             return mod;
         }
