@@ -1737,7 +1737,7 @@ namespace URPGDesktopCalc
 
             //Type-reducing berries
             bool Berry = false;
-            if (A.Ability != "UV" && D.Ability != "KL")
+            if (A.Ability != "UV" && D.Ability != "KL" && !D.Sub)
             {
                 if (D.Item == "Tanga Berry" && A.AttackType.Code == "B" && TE > 1.0) Berry = true;
                 if (D.Item == "Colbur Berry" && A.AttackType.Code == "DK" && TE > 1.0) Berry = true;
