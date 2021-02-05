@@ -70,7 +70,8 @@ namespace URPGDesktopCalc
                     string versionWord = versionCount > 1 ? "versions" : "version";
                     string message = new StringBuilder().AppendLine($"Calc is {versionCount} {versionWord} behind.").
                         AppendLine("If you choose to update, changes wont take affect until the calc is restarted.").
-                        AppendLine("Would you like to download and install them?").
+                        AppendLine("The changelog is available at https://urpg.monbrey.com.au/calcs/desktop/").
+                        AppendLine("Would you like to download and install updates?").
                         ToString();
 
                     DialogResult result = MessageBox.Show(message, @"Calc update found", MessageBoxButtons.YesNo);

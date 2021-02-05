@@ -1215,6 +1215,21 @@ namespace URPGDesktopCalc
 
             UpdateHealthDisplay();
             UpdateStatDisplay();
+
+            if(TE > 1.0 && Defender.Item == "Weakness Policy")
+            {
+                MessageBox.Show("Weakness Policy activates");
+                if (Defender.Which == 'A')
+                {
+                    AttModA.SelectedIndex -= 2;
+                    SpaModA.SelectedIndex -= 2;
+                }
+                else
+                {
+                    AttModB.SelectedIndex -= 2;
+                    SpaModB.SelectedIndex -= 2;
+                }
+            }
         }
 
         protected void ConfuseDamage(object sender, EventArgs e)
@@ -1775,6 +1790,9 @@ namespace URPGDesktopCalc
                     mod *= 2.25;
                 else
                     mod *= 1.5;
+
+                if (A.Which == 'A') CritA.SelectedIndex = 1; else CritB.SelectedIndex = 1;
+
             }
 
             return mod;
