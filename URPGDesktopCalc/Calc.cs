@@ -1223,11 +1223,13 @@ namespace URPGDesktopCalc
                 {
                     AttModA.SelectedIndex -= 2;
                     SpaModA.SelectedIndex -= 2;
+                    HItemA.SelectedIndex = 0;
                 }
                 else
                 {
                     AttModB.SelectedIndex -= 2;
                     SpaModB.SelectedIndex -= 2;
+                    HItemB.SelectedIndex = 0;
                 }
             }
         }
