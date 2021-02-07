@@ -159,13 +159,13 @@ namespace URPGDesktopCalc.Classes
             {
                 MaxHP /= 2;
                 CurrentHP /= 2;
-                butt.BackColor = Color.Transparent;
+                butt.FlatAppearance.BorderColor = Color.Empty;
             }
             else
             {
                 MaxHP *= 2;
                 CurrentHP *= 2;
-                butt.BackColor = Color.LightCoral;
+                butt.FlatAppearance.BorderColor = Color.Red;
             }
 
             isDynamaxed = !isDynamaxed;
