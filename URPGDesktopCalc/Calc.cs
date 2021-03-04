@@ -1064,9 +1064,9 @@ namespace URPGDesktopCalc
             switch (Attacker.AttackClass)
             {
                 case "PHYS":
-                    Damage = Math.Floor(42 * Attacker.BasePower * (Attacker.ATT * Attacker.ATTmod) / 50);
+                    Damage = Math.Floor(42 * Attacker.BasePower * Math.Floor(Attacker.ATT * Attacker.ATTmod) / 50);
                     Console.WriteLine(Damage);
-                    Damage = Math.Floor(Damage / (Defender.DEF * Defender.DEFmod));
+                    Damage = Math.Floor(Damage / Math.Floor(Defender.DEF * Defender.DEFmod));
                     Console.WriteLine(Damage);
                     Damage = Math.Floor(Damage * ModOne);
                     Console.WriteLine(Damage);
@@ -1084,8 +1084,8 @@ namespace URPGDesktopCalc
                     Console.WriteLine(Damage);
                     break;
                 case "SPEC":
-                    Damage = Math.Floor(42 * Attacker.BasePower * (Attacker.SPA * Attacker.SPAmod) / 50);
-                    Damage = Math.Floor(Damage / (Defender.SPD * Defender.SPDmod));
+                    Damage = Math.Floor(42 * Attacker.BasePower * Math.Floor(Attacker.SPA * Attacker.SPAmod) / 50);
+                    Damage = Math.Floor(Damage / Math.Floor(Defender.SPD * Defender.SPDmod));
                     Damage = Math.Floor(Damage * ModOne);
                     Damage = Math.Floor((Damage + 2.0) * ModTwo);
                     Damage = Math.Floor(Damage * 92.5);
@@ -1095,8 +1095,8 @@ namespace URPGDesktopCalc
                     Damage = -Math.Floor(Damage * ModThree);
                     break;
                 case "SAvD":
-                    Damage = Math.Floor(42 * Attacker.BasePower * (Attacker.SPA * Attacker.SPAmod) / 50);
-                    Damage = Math.Floor(Damage / (Defender.DEF * Defender.DEFmod));
+                    Damage = Math.Floor(42 * Attacker.BasePower * Math.Floor(Attacker.SPA * Attacker.SPAmod) / 50);
+                    Damage = Math.Floor(Damage / Math.Floor(Defender.DEF * Defender.DEFmod));
                     Damage = Math.Floor(Damage * ModOne);
                     Damage = Math.Floor((Damage + 2.0)* ModTwo);
                     Damage = Math.Floor(Damage * 92.5);
