@@ -999,9 +999,6 @@ namespace URPGDesktopCalc
         #region THE DAMAGE CALCULATION
         protected void CalcDamage(object sender, EventArgs e)
         {
-            double STAB = 1.0;  //Same Type Attack Bonus
-            double TE = 1.0;    //Type Effectiveness
-
             BattlePokemon Attacker, Defender;
 
             //Ensure two Pokemon are selected before calculation
@@ -1045,9 +1042,9 @@ namespace URPGDesktopCalc
             double ModThree = CalcModThree(Attacker, Defender);
 
             //Check Stab
-            STAB = CheckStab(Attacker);
+            double STAB = CheckStab(Attacker);
             //Check Type Effectiveness
-            TE = CheckTypes(Attacker, Defender);
+            double TE = CheckTypes(Attacker, Defender);
             #endregion
 
             #region THE DAMAGE FORMULA
@@ -1204,6 +1201,16 @@ namespace URPGDesktopCalc
             {
                 Damage = 0;
                 MessageBox.Show("Wonder Guard prevents damage.");
+            }
+
+            // Harsh Sun negate Water moves, Heavy Rain negates Fire moves
+            if (((Object)WeatherBox.SelectedItem).Code == "HS" && Attacker.AttackType.Code == "W")
+            {
+                Damage = 0;
+            }
+            if (((Object)WeatherBox.SelectedItem).Code == "HR" && Attacker.AttackType.Code == "GR")
+            {
+                Damage = 0;
             }
             #endregion
 
@@ -1696,13 +1703,9 @@ namespace URPGDesktopCalc
                 mod *= 0.5;
 
             //Harsh sun
-            if (Weather == "HS" && A.AttackType.Code == "W")
-                mod *= 0;
             if (Weather == "HS" && A.AttackType.Code == "FR")
                 mod *= 1.5;
             //Heavy rain
-            if (Weather == "HR" && A.AttackType.Code == "FR")
-                mod *= 0;
             if (Weather == "HR" && A.AttackType.Code == "W")
                 mod *= 1.5;
 
