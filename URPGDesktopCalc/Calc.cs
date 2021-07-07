@@ -1433,9 +1433,9 @@ namespace URPGDesktopCalc
             if(A.AttackType.Compatibility.NVE.Contains(D.Type2))
                 result *= 0.5;
 
-            if (A.AttackType.Compatibility.I.Contains(D.Type1))
+            if (A.AttackType.Compatibility.I.Contains(D.Type1) && (A.Ability != "SCR" || D.Type1 != "GH") && B.Item != "Ring Target")
                 result *= 0.0;
-            if (A.AttackType.Compatibility.I.Contains(D.Type2))
+            if (A.AttackType.Compatibility.I.Contains(D.Type2) && (A.Ability != "SCR" || D.Type2 != "GH") && B.Item != "Ring Target")
                 result *= 0.0;
 
             //Mysterious air current override - assumes the above would have already x2.0
@@ -1771,7 +1771,7 @@ namespace URPGDesktopCalc
                 if (D.Item == "Rindo Berry" && A.AttackType.Code == "GR" && TE > 1.0) Berry = true;
                 if (D.Item == "Shuca Berry" && A.AttackType.Code == "GD" && TE > 1.0) Berry = true;
                 if (D.Item == "Yache Berry" && A.AttackType.Code == "I" && TE > 1.0) Berry = true;
-                if (D.Item == "Chilan Berry" && A.AttackType.Code == "NM") Berry = true;
+                if (D.Item == "Chilan Berry" && A.AttackType.Code == "NM" && TE > 0.0) Berry = true;
                 if (D.Item == "Kebia Berry" && A.AttackType.Code == "PO" && TE > 1.0) Berry = true;
                 if (D.Item == "Payapa Berry" && A.AttackType.Code == "PS" && TE > 1.0) Berry = true;
                 if (D.Item == "Charti Berry" && A.AttackType.Code == "R" && TE > 1.0) Berry = true;
